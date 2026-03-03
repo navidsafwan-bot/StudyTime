@@ -11,49 +11,240 @@
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+📚 Tutoring Management System
+A Laravel-Based Web Application
+Software Engineering Course Project
+1. Project Overview
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The Tutoring Management System is a web-based academic platform developed using the Laravel framework. This project aims to digitally manage tutoring activities between teachers and students, ensuring efficient course management, structured content delivery, and organized academic interaction.
 
-## Learning Laravel
+The system is being developed following standard Software Engineering principles, including modular design, MVC architecture, database normalization, and sprint-based development methodology.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+This project is a redevelopment of a previously implemented system (Core PHP version), now reconstructed using Laravel to ensure scalability, maintainability, and adherence to modern development standards.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. Project Objectives
 
-## Laravel Sponsors
+The primary objectives of this project are:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+To implement a structured MVC-based web application using Laravel
 
-### Premium Partners
+To design a relational database with proper entity relationships
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+To apply software engineering concepts such as system architecture planning and UML modeling
 
-## Contributing
+To ensure maintainable and reusable code structure
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+To follow sprint-based development methodology
 
-## Code of Conduct
+3. Development Methodology
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+The project follows a Sprint-Based Incremental Development Model, structured as follows:
 
-## Security Vulnerabilities
+Sprint 1
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Framework setup
 
-## License
+Environment configuration
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Database schema planning
+
+System architecture design
+
+Class diagram preparation
+
+Base template creation
+
+Future sprints will focus on functional module implementation and testing.
+
+4. System Architecture
+
+The system follows the Model-View-Controller (MVC) architectural pattern provided by Laravel.
+
+Model
+
+Handles database interaction using Eloquent ORM
+
+Defines entity relationships
+
+Ensures data integrity
+
+View
+
+Built using Blade templating engine
+
+Provides structured and reusable layouts
+
+Supports dynamic content rendering
+
+Controller
+
+Contains business logic
+
+Manages request handling and response generation
+
+5. Core Functional Modules
+
+The system consists of the following major modules:
+
+5.1 Course Management
+
+Teachers can create, update, and manage courses. Each course is associated with a specific teacher and contains learning materials, quizzes, and schedules.
+
+5.2 Enrollment Management
+
+Students can enroll in available courses. The system maintains many-to-many relationships between students and courses.
+
+5.3 Quiz Management
+
+Teachers can:
+
+Create quizzes
+
+Define availability duration
+
+Upload quiz documents
+
+Students can:
+
+Access available quizzes
+
+Submit quiz responses within specified time
+
+5.4 Study Material Management
+
+Teachers can upload course materials. Students can access and download relevant academic resources.
+
+5.5 Session Scheduling
+
+Teachers can schedule tutoring sessions with topics and dates. Students can view upcoming sessions.
+
+6. Database Design Overview
+
+The system is designed using a relational database structure.
+
+Primary Entities
+
+Users
+
+Courses
+
+Enrollments
+
+Quizzes
+
+Quiz Submissions
+
+Materials
+
+Schedules
+
+Key Relationships
+
+One Teacher → Many Courses
+
+One Course → Many Enrollments
+
+One Course → Many Quizzes
+
+One Course → Many Materials
+
+One Course → Many Scheduled Sessions
+
+Database schema is implemented using Laravel Migrations.
+
+7. Technology Stack
+Component	Technology
+Backend Framework	Laravel 10
+Programming Language	PHP
+Frontend	Blade Template Engine
+Database	MySQL
+Version Control	Git & GitHub
+Development Server	Laravel Artisan
+8. Installation and Setup Guide
+Step 1: Clone the Repository
+git clone https://github.com/your-username/tutoring-management-system.git
+cd tutoring-management-system
+Step 2: Install Dependencies
+composer install
+Step 3: Configure Environment File
+
+Copy .env.example to .env and update database configuration:
+
+DB_DATABASE=tutoring_system
+DB_USERNAME=root
+DB_PASSWORD=
+Step 4: Generate Application Key
+php artisan key:generate
+Step 5: Run Migrations
+php artisan migrate
+Step 6: Start Development Server
+php artisan serve
+
+Open in browser:
+
+http://127.0.0.1:8000
+9. Software Engineering Practices Applied
+
+MVC Architectural Pattern
+
+Modular System Design
+
+Database Normalization
+
+Sprint-Based Development
+
+Git Version Control Workflow
+
+Separation of Concerns
+
+Reusable Blade Layouts
+
+10. Academic Context
+
+This project is developed as part of a Software Engineering course requirement. The goal is to demonstrate:
+
+Practical implementation of system design concepts
+
+Framework-based development
+
+Proper documentation and architectural planning
+
+Application of UML modeling and database design principles
+
+11. Future Enhancements
+
+Planned improvements in upcoming sprints include:
+
+Role-based dashboards
+
+Performance tracking module
+
+Automated grading system
+
+Enhanced validation and security
+
+Unit and feature testing
+
+Deployment configuration
+
+12. Project Status
+
+Current Status:
+🟢 Framework Initialized
+🟢 Database Designed
+🟢 Base Architecture Implemented
+🟡 Functional Modules – In Development
+
+13. Declaration
+
+This project is developed strictly for academic purposes as part of coursework submission.
+
+If you want, I can now:
+
+Add a formal academic declaration section
+
+Add a UML diagram section placeholder
+
+Add a Project Structure section
+
+Or make it look like a professional final-year thesis repository**
