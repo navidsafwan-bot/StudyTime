@@ -235,16 +235,4 @@ Current Status:
 🟢 Base Architecture Implemented
 🟡 Functional Modules – In Development
 
-13. Declaration
 
-This project is developed strictly for academic purposes as part of coursework submission.
-
-If you want, I can now:
-
-Add a formal academic declaration section
-
-Add a UML diagram section placeholder
-
-Add a Project Structure section
-
-Or make it look like a professional final-year thesis repository**
