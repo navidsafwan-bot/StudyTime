@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyTime - Tuition Management</title>
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-50 font-sans text-slate-900">
@@ -19,7 +21,7 @@
 
     <!-- Hero Section -->
     <header class="text-center py-20 px-4 bg-gradient-to-b from-white to-slate-50">
-        <h1 class="text-5xl font-extrabold mb-4">Master Your Tuition Tasks</h1>
+        <h1>Master Your Tuition Tasks</h1>
         <p class="text-xl text-slate-600 max-w-2xl mx-auto">The all-in-one platform for teachers to manage schedules and students to track their learning progress.</p>
         <div class="mt-8 space-x-4">
             <a href="#" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-indigo-200 transition">I am a Student</a>

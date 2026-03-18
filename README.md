@@ -241,3 +241,4 @@ testing navid_test branch
 # how to set up testing server for navid_test branch
 1. Switch to navid_test branch
 git checkout navid_test
+2. npm install vite --save-dev .(in terminal)
