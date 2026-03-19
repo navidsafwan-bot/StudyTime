@@ -1,6 +1,3 @@
-import './bootstrap';
-
-
 document.addEventListener('DOMContentLoaded', () => {
     // Dynamic glare effect for Glass Feature Cards
     const cards = document.querySelectorAll('.feature-card');
