@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    @vite('resources/css/app.css')
+    @vite('resources/css/maker_info/app.css')
     @vite('resources/js/app.js')
 </head>
 <body>
@@ -17,16 +17,16 @@
     <div class="container">
         <!-- Simple Back Navigation -->
         <nav class="navbar glass" style="margin-bottom: 2rem;">
-            <a href="/about" class="logo" style="font-size: 1.2rem;">⬅ Back to StudyTime</a>
-        </nav>
+            <a href="{{ route('aboutus') }}" class="logo" style="font-size: 1.2rem;">⬅ Back to About</a>
+        </nav>  
 
         <!-- Profile Hero Section -->
         <header class="portfolio-hero glass text-center">
             <div class="portfolio-avatar">
                 <!-- Replace with your actual photo -->
-                <img src="https://ui-avatars.com/api/?name=Your+Name&background=4f46e5&color=fff&size=150" alt="Developer Profile">
+                <img src="{{ asset('image/navid.jpg') }}" alt="Developer Profile">
             </div>
-            <h1>Your Name Here</h1>
+            <h1>Navid Safwan</h1>
             <p class="role-title">Software Engineering Student & Developer</p>
             <p class="bio">I build scalable web applications and love solving complex problems. Passionate about clean code, MVC architecture, and creating user-friendly interfaces.</p>
             

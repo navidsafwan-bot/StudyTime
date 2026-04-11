@@ -89,9 +89,9 @@
             <div class="team-card feature-card glass">
                 <div class="avatar">
                     <!-- Placeholder image, replace src with actual image path -->
-                    <img src="https://ui-avatars.com/api/?name=Developer+One&background=4f46e5&color=fff&size=150" alt="Maker 1">
+                    <img src="{{ asset('image/navid.jpg') }}" alt="Maker 1">
                 </div>
-                <h3>Developer One</h3>
+                <h3>Navid safwan</h3>
                 <span class="role">Lead Developer</span>
                 <p>Specializes in Laravel MVC architecture, database design, and backend logic.</p>
                 <a href="{{ route('navidinfo') }}"  class="btn btn-outline portfolio-btn">View Portfolio</a>
@@ -100,9 +100,9 @@
             <!-- Maker 2 -->
             <div class="team-card feature-card glass">
                 <div class="avatar">
-                    <img src="https://ui-avatars.com/api/?name=Developer+Two&background=ec4899&color=fff&size=150" alt="Maker 2">
+                    <img src="{{ asset('image/bishal.jpg') }}" alt="Maker 2">
                 </div>
-                <h3>Developer Two</h3>
+                <h3>Bishal shaha</h3>
                 <span class="role">Frontend Developer</span>
                 <p>Focuses on Blade templating, Glassmorphism UI/UX design, and responsiveness.</p>
                 <a href="{{ route('samsulinfo') }}"  class="btn btn-outline portfolio-btn">View Portfolio</a>
@@ -113,7 +113,7 @@
                 <div class="avatar">
                     <img src="https://ui-avatars.com/api/?name=Developer+Three&background=0ea5e9&color=fff&size=150" alt="Maker 3">
                 </div>
-                <h3>Developer Three</h3>
+                <h3>MD. Samsul Huda</h3>
                 <span class="role">QA & System Analyst</span>
                 <p>Ensures software engineering best practices, UML modeling, and system testing.</p>
                 <a href="{{ route('bishalinfo') }}"  class="btn btn-outline portfolio-btn">View Portfolio</a>

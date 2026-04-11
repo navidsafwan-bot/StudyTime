@@ -362,7 +362,7 @@ a {
     top: 0; left: 0; right: 0; bottom: 0;
     background: radial-gradient(
         600px circle at var(--mouse-x, 0) var(--mouse-y, 0), 
-        rgba(255, 255, 255, 0.4), 
+        rgba(112, 96, 96, 0.4), 
         transparent 40%
     );
     border-radius: inherit;
@@ -549,4 +549,9 @@ a {
     .portfolio-hero h1 {
         font-size: 2rem;
     }
+}
+
+.xx{
+    color: red;
+    font-size: 200px !important;
 }

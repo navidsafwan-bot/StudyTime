@@ -1,35 +1,27 @@
 <?php
 
-use Illuminate\Support\Facades\Route;//thsi does not work without this line, it is used to define routes in Laravel
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\QuizController;
 
 Route::get('/', function () {
     return view('home');
 });
 
-//named routes we are going to use this in the blade file to link to the about page
-Route::get('/test',function() {
-    return view('signup');
-})->name("signuppage");
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
+Route::post('/signup', [AuthController::class, 'signup']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-
-//groped routes
-Route::get('/aboutus',function() {
-    return view('about');
-})->name("aboutus");
- 
-Route::prefix()->group(function() {
-
-  Route::get("/navid", function(){
-   return view("navid_info");
-  })->name("navidinfo");
-
-  Route::get("/Md.Samsul", function(){
-   return view("Samsul_info");
-  })->name("samsulinfo");
-
-    Route::get("/bishal", function(){
-   return view("bishal_info");
-  })->name("bishalinfo");
-
-
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('courses', CourseController::class);
+    Route::post('courses/join', [CourseController::class, 'join'])->name('courses.join');
+    Route::resource('posts', PostController::class);
+    Route::resource('quizzes', QuizController::class);
+    Route::post('quizzes/{id}/submit', [QuizController::class, 'submit'])->name('quizzes.submit');
 }); 

@@ -83,6 +83,7 @@ Contains business logic
 Manages request handling and response generation
 
 5. Core Functional Modules
+when a teacher logins they will be directed to the teacher dashboard where they can see their available courses and they can create new courses,After enteringa cousrse they will see 9 features  manage existing courses, upload study materials, create quizzes, teacher can post announcement( can edit , delete )  and schedule tutoring sessions etc. When a student logins they will be directed to the student dashboard where they can see their enrolled courses, access study materials, take quizzes, and view scheduled tutoring sessions, can see posts. 
 
 The system consists of the following major modules:
 
