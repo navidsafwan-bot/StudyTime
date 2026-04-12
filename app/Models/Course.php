@@ -38,4 +38,14 @@ class Course extends Model
     {
         return $this->hasMany(Assignment::class);
     }
+
+    public function materials(): HasMany
+    {
+        return $this->hasMany(Material::class);
+    }
+
+    public function schedules(): HasMany
+    {
+        return $this->hasMany(Schedule::class);
+    }
 }

@@ -43,4 +43,18 @@ Route::middleware('auth')->group(function () {
     // Submission routes
     Route::post('assignments/{assignment_id}/submissions', [SubmissionController::class, 'store'])->name('submissions.store');
     Route::get('submissions/download/{id}', [SubmissionController::class, 'download'])->name('submissions.download');
+    // Material routes
+    Route::get('courses/{course_id}/materials', [\App\Http\Controllers\MaterialController::class, 'index'])->name('materials.index');
+    Route::get('courses/{course_id}/materials/create', [\App\Http\Controllers\MaterialController::class, 'create'])->name('materials.create');
+    Route::post('courses/{course_id}/materials', [\App\Http\Controllers\MaterialController::class, 'store'])->name('materials.store');
+    Route::get('materials/{id}/download', [\App\Http\Controllers\MaterialController::class, 'download'])->name('materials.download');
+    Route::delete('materials/{id}', [\App\Http\Controllers\MaterialController::class, 'destroy'])->name('materials.destroy');
+
+    // Schedule routes
+    Route::get('courses/{course_id}/schedules', [\App\Http\Controllers\ScheduleController::class, 'index'])->name('schedules.index');
+    Route::get('courses/{course_id}/schedules/create', [\App\Http\Controllers\ScheduleController::class, 'create'])->name('schedules.create');
+    Route::post('courses/{course_id}/schedules', [\App\Http\Controllers\ScheduleController::class, 'store'])->name('schedules.store');
+    Route::get('schedules/{id}/edit', [\App\Http\Controllers\ScheduleController::class, 'edit'])->name('schedules.edit');
+    Route::put('schedules/{id}', [\App\Http\Controllers\ScheduleController::class, 'update'])->name('schedules.update');
+    Route::delete('schedules/{id}', [\App\Http\Controllers\ScheduleController::class, 'destroy'])->name('schedules.destroy');
 }); 

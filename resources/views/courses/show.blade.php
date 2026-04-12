@@ -37,9 +37,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Study Materials</h5>
                     <p class="card-text">Access course materials.</p>
-                    <a href="#" class="btn btn-primary">View Materials</a>
+                    <a href="{{ route('materials.index', $course->id) }}" class="btn btn-primary">View Materials</a>
                     @if(auth()->user()->role === 'teacher')
-                        <a href="#" class="btn btn-secondary">Upload Material</a>
+                        <a href="{{ route('materials.create', $course->id) }}" class="btn btn-secondary">Upload Material</a>
                     @endif
                 </div>
             </div>
@@ -51,9 +51,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Schedule</h5>
                     <p class="card-text">View tutoring sessions.</p>
-                    <a href="#" class="btn btn-primary">View Schedule</a>
+                    <a href="{{ route('schedules.index', $course->id) }}" class="btn btn-primary">View Schedule</a>
                     @if(auth()->user()->role === 'teacher')
-                        <a href="#" class="btn btn-secondary">Schedule Session</a>
+                        <a href="{{ route('schedules.create', $course->id) }}" class="btn btn-secondary">Schedule Session</a>
                     @endif
                 </div>
             </div>
