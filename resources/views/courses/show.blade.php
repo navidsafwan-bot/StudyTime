@@ -64,7 +64,9 @@
                     <h5 class="card-title">Enrollments</h5>
                     <p class="card-text">Manage course enrollments.</p>
                     @if(auth()->user()->role === 'teacher')
-                        <a href="#" class="btn btn-primary">View Enrollments</a>
+                        <a href="{{ route('enrollments.index', $course->id) }}" class="btn btn-primary">Manage Enrollments</a>
+                    @else
+                        <a href="{{ route('enrollments.index', $course->id) }}" class="btn btn-primary">View Enrollments</a>
                     @endif
                 </div>
             </div>
@@ -74,11 +76,12 @@
                 <div class="card-body">
                     <h5 class="card-title">Assignments</h5>
                     <p class="card-text">Submit or manage assignments.</p>
-                    <a href="#" class="btn btn-primary">View Assignments</a>
+                    <a href="{{ route('assignments.index', $course->id) }}" class="btn btn-primary">View Assignments</a>
                 </div>
             </div>
         </div>
     </div>
-    <a href="{{ route('courses.index') }}" class="btn btn-secondary">Back to Courses</a>
+
+    <a href="{{ route('courses.index') }}" class="btn btn-secondary mt-3">Back to Courses</a>
 </div>
 @endsection
