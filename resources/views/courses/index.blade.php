@@ -25,7 +25,12 @@
         @foreach($courses as $course)
             <div class="card mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $course->title }}</h5>
+                    <h5 class="card-title">
+                        {{ $course->title }}
+                        @if($course->average_rating > 0)
+                            <span class="text-warning ms-2 fs-6">⭐ {{ number_format($course->average_rating, 1) }} / 5</span>
+                        @endif
+                    </h5>
                     <p class="card-text">{{ $course->description }}</p>
                     <p class="text-muted">Teacher: {{ $course->teacher->name }}</p>
                     <a href="{{ route('courses.show', $course) }}" class="btn btn-info">Enter Course</a>

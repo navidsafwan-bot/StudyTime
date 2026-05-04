@@ -13,6 +13,8 @@ use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\EvaluationController;
+use App\Http\Controllers\GradeSheetController;
 
 Route::get('/', function () {
     return view('home');
@@ -76,4 +78,11 @@ Route::middleware('auth')->group(function () {
     Route::get('schedules/{id}/edit', [\App\Http\Controllers\ScheduleController::class, 'edit'])->name('schedules.edit');
     Route::put('schedules/{id}', [\App\Http\Controllers\ScheduleController::class, 'update'])->name('schedules.update');
     Route::delete('schedules/{id}', [\App\Http\Controllers\ScheduleController::class, 'destroy'])->name('schedules.destroy');
+
+    // Evaluation routes
+    Route::get('courses/{course_id}/evaluations', [EvaluationController::class, 'index'])->name('evaluations.index');
+    Route::post('courses/{course_id}/evaluations', [EvaluationController::class, 'store'])->name('evaluations.store');
+
+    // Grades route
+    Route::get('courses/{course_id}/grades', [GradeSheetController::class, 'index'])->name('grades.index');
 }); 

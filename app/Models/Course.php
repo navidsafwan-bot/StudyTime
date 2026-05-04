@@ -48,4 +48,14 @@ class Course extends Model
     {
         return $this->hasMany(Schedule::class);
     }
+
+    public function evaluations(): HasMany
+    {
+        return $this->hasMany(Evaluation::class);
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        return $this->evaluations()->avg('rating') ?? 0;
+    }
 }

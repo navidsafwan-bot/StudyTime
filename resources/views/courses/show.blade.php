@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="container">
-    <h2>{{ $course->title }}</h2>
+    <h2>
+        {{ $course->title }} 
+        @if($course->average_rating > 0)
+            <span class="text-warning ms-2 fs-4">⭐ {{ number_format($course->average_rating, 1) }} / 5</span>
+        @endif
+    </h2>
     <p>{{ $course->description }}</p>
     <p class="text-muted">Teacher: <a href="{{ route('profile.show', $course->teacher->id) }}">{{ $course->teacher->name }}</a></p>
 
@@ -77,6 +82,30 @@
                     <h5 class="card-title">Assignments</h5>
                     <p class="card-text">Submit or manage assignments.</p>
                     <a href="{{ route('assignments.index', $course->id) }}" class="btn btn-primary">View Assignments</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Course Evaluation</h5>
+                    <p class="card-text">View or submit course evaluations.</p>
+                    @if(auth()->user()->role === 'teacher')
+                        <a href="{{ route('evaluations.index', $course->id) }}" class="btn btn-primary">View Results</a>
+                    @else
+                        <a href="{{ route('evaluations.index', $course->id) }}" class="btn btn-primary">Course Evaluation</a>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Grade Sheet</h5>
+                    <p class="card-text">View performance summary.</p>
+                    <a href="{{ route('grades.index', $course->id) }}" class="btn btn-primary">View Grade Sheet</a>
                 </div>
             </div>
         </div>
