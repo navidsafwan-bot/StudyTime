@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
     @vite('resources/css/maker_info/app.css')
     @vite('resources/js/app.js')
+   <!-- comment -->
+
 </head>
 <body>
     <!-- Background animated shapes for the glass effect -->
