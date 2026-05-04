@@ -14,6 +14,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\EvaluationController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GradeSheetController;
 
 Route::get('/', function () {
@@ -85,4 +86,15 @@ Route::middleware('auth')->group(function () {
 
     // Grades route
     Route::get('courses/{course_id}/grades', [GradeSheetController::class, 'index'])->name('grades.index');
+});
+
+// Admin Routes
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/users', [AdminController::class, 'users'])->name('users.index');
+    Route::put('/users/{user}/status', [AdminController::class, 'updateUserStatus'])->name('users.updateStatus');
+    Route::delete('/users/{user}', [AdminController::class, 'deleteUser'])->name('users.destroy');
+    Route::get('/courses', [AdminController::class, 'courses'])->name('courses.index');
+    Route::delete('/courses/{course}', [AdminController::class, 'deleteCourse'])->name('courses.destroy');
+    Route::get('/evaluations', [AdminController::class, 'evaluations'])->name('evaluations.index');
 }); 

@@ -22,7 +22,14 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($request->only('email', 'password'))) {
+            if (Auth::user()->status === 'suspended') {
+                Auth::logout();
+                return back()->withErrors(['email' => 'Your account has been suspended.']);
+            }
             $request->session()->regenerate();
+            if (Auth::user()->role === 'admin') {
+                return redirect()->intended('/admin/dashboard');
+            }
             return redirect()->intended('/dashboard');
         }
 
