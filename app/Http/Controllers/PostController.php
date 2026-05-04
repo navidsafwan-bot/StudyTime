@@ -41,12 +41,30 @@ class PostController extends Controller
             'course_id' => 'required|exists:courses,id',
         ]);
 
-        Post::create([
+        $post = Post::create([
             'title' => $request->title,
             'content' => $request->content,
             'user_id' => Auth::id(),
             'course_id' => $request->course_id,
         ]);
+
+        $course = \App\Models\Course::find($request->course_id);
+        $notifications = [];
+        foreach ($course->students as $student) {
+            $notifications[] = [
+                'user_id' => $student->id,
+                'course_id' => $course->id,
+                'type' => 'post',
+                'title' => 'New Announcement',
+                'message' => 'A new announcement "' . $post->title . '" has been posted in ' . $course->title,
+                'link' => route('courses.show', $course->id),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+        if (!empty($notifications)) {
+            \App\Models\Notification::insert($notifications);
+        }
 
         return redirect()->route('courses.show', $request->course_id)->with('success', 'Post created successfully.');
     }

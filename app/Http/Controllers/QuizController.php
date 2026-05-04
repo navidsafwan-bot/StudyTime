@@ -66,6 +66,24 @@ class QuizController extends Controller
             ]);
         }
 
+        $course = \App\Models\Course::find($request->course_id);
+        $notifications = [];
+        foreach ($course->students as $student) {
+            $notifications[] = [
+                'user_id' => $student->id,
+                'course_id' => $course->id,
+                'type' => 'quiz',
+                'title' => 'New Quiz Created',
+                'message' => 'A new quiz "' . $quiz->title . '" is available in ' . $course->title,
+                'link' => route('courses.show', $course->id),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+        if (!empty($notifications)) {
+            \App\Models\Notification::insert($notifications);
+        }
+
         return redirect()->route('courses.show', $request->course_id)->with('success', 'Quiz created successfully.');
     }
 

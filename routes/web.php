@@ -10,6 +10,9 @@ use App\Http\Controllers\QuizController;
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\EnrollmentController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\NotificationController;
 
 Route::get('/', function () {
     return view('home');
@@ -23,6 +26,12 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
+    // Profile Routes
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
+
     Route::resource('courses', CourseController::class);
     Route::post('courses/join', [CourseController::class, 'join'])->name('courses.join');
     Route::resource('posts', PostController::class);
@@ -39,6 +48,16 @@ Route::middleware('auth')->group(function () {
     Route::post('courses/{course_id}/assignments', [AssignmentController::class, 'store'])->name('assignments.store');
     Route::get('assignments/{id}', [AssignmentController::class, 'show'])->name('assignments.show');
     Route::get('assignments/download/{id}', [AssignmentController::class, 'download'])->name('assignments.download');
+    
+    // Message routes
+    Route::get('courses/{course_id}/messages', [MessageController::class, 'index'])->name('messages.index');
+    Route::post('courses/{course_id}/messages', [MessageController::class, 'store'])->name('messages.store');
+    Route::put('messages/{message}/seen', [MessageController::class, 'markSeen'])->name('messages.seen');
+    
+    // Notification routes
+    Route::get('notifications', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::post('notifications/read-all', [NotificationController::class, 'markAllAsRead'])->name('notifications.readAll');
+    Route::post('notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.read');
     
     // Submission routes
     Route::post('assignments/{assignment_id}/submissions', [SubmissionController::class, 'store'])->name('submissions.store');

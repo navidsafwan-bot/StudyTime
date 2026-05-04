@@ -4,7 +4,7 @@
 <div class="container">
     <h2>{{ $course->title }}</h2>
     <p>{{ $course->description }}</p>
-    <p class="text-muted">Teacher: {{ $course->teacher->name }}</p>
+    <p class="text-muted">Teacher: <a href="{{ route('profile.show', $course->teacher->id) }}">{{ $course->teacher->name }}</a></p>
 
     <h3>Course Features</h3>
     <div class="row">
@@ -84,4 +84,7 @@
 
     <a href="{{ route('courses.index') }}" class="btn btn-secondary mt-3">Back to Courses</a>
 </div>
+
+@include('messages.chat-widget', ['course' => $course])
+
 @endsection

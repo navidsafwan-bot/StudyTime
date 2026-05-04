@@ -25,6 +25,12 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'age',
+        'education',
+        'profile_image',
+        'expertise',
+        'teaching_experience',
+        'academic_info',
     ];
 
     /**

@@ -45,13 +45,30 @@ class AssignmentController extends Controller
             $filePath = $request->file('file')->store('assignments', 'public');
         }
 
-        Assignment::create([
+        $assignment = Assignment::create([
             'course_id' => $course->id,
             'title' => $request->title,
             'description' => $request->description,
             'file_path' => $filePath,
             'deadline' => $request->deadline,
         ]);
+
+        $notifications = [];
+        foreach ($course->students as $student) {
+            $notifications[] = [
+                'user_id' => $student->id,
+                'course_id' => $course->id,
+                'type' => 'assignment',
+                'title' => 'New Assignment Uploaded',
+                'message' => 'A new assignment "' . $assignment->title . '" is available in ' . $course->title,
+                'link' => route('assignments.show', $assignment->id),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+        if (!empty($notifications)) {
+            \App\Models\Notification::insert($notifications);
+        }
 
         return redirect()->route('courses.show', $course->id)->with('success', 'Assignment created successfully.');
     }

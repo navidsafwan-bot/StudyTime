@@ -32,7 +32,7 @@
         <ul class="list-group">
             @foreach($course->students as $student)
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {{ $student->name }} ({{ $student->email }})
+                    <a href="{{ route('profile.show', $student->id) }}">{{ $student->name }}</a> ({{ $student->email }})
                     @if(auth()->user()->role === 'teacher')
                         <form action="{{ route('enrollments.destroy', ['course_id' => $course->id, 'student_id' => $student->id]) }}" method="POST" onsubmit="return confirm('Remove student?');">
                             @csrf
