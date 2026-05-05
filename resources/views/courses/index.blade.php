@@ -49,22 +49,23 @@
         @if(auth()->user()->role === 'teacher')
             <p>You have no courses yet.</p>
             <p><a href="{{ route('courses.create') }}">Create your first course</a></p>
-        @else
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Join a Course</h5>
-                    <p class="card-text">Enter the exact course title to join a course.</p>
-                    <form method="POST" action="{{ route('courses.join') }}">
-                        @csrf
-                        <div class="form-group">
-                            <label for="course_title">Course Title</label>
-                            <input type="text" name="course_title" id="course_title" class="form-control" placeholder="Enter course title" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Join Course</button>
-                    </form>
-                </div>
-            </div>
         @endif
+    @endif
+    @if(auth()->user()->role === 'student')
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Join a Course</h5>
+                <p class="card-text">Enter the exact course title to join a course.</p>
+                <form method="POST" action="{{ route('courses.join') }}">
+                    @csrf
+                    <div class="form-group">
+                        <label for="course_title">Course Title</label>
+                        <input type="text" name="course_title" id="course_title" class="form-control" placeholder="Enter course title" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Join Course</button>
+                </form>
+            </div>
+        </div>
     @endif
 </div>
 @endsection

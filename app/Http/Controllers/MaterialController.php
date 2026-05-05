@@ -50,6 +50,12 @@ class MaterialController extends Controller
         return redirect()->route('materials.index', $course_id)->with('success', 'Material uploaded successfully!');
     }
 
+    public function view($id)
+    {
+        $material = Material::findOrFail($id);
+        return Storage::disk('public')->response($material->file_path);
+    }
+
     public function download($id)
     {
         $material = Material::findOrFail($id);

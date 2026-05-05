@@ -19,7 +19,7 @@
 
                     <div class="text-center mb-4">
                         @if($user->profile_image)
-                            <img src="{{ asset('storage/' . $user->profile_image) }}" alt="Profile Picture" class="rounded-circle img-thumbnail" style="width: 150px; height: 150px; object-fit: cover;">
+                            <img src="{{ Storage::url($user->profile_image) }}" alt="Profile Picture" class="rounded-circle img-thumbnail" style="width: 150px; height: 150px; object-fit: cover;">
                         @else
                             <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center mx-auto text-white" style="width: 150px; height: 150px; font-size: 3rem;">
                                 {{ strtoupper(substr($user->name, 0, 1)) }}

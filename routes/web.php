@@ -69,6 +69,7 @@ Route::middleware('auth')->group(function () {
     Route::get('courses/{course_id}/materials', [\App\Http\Controllers\MaterialController::class, 'index'])->name('materials.index');
     Route::get('courses/{course_id}/materials/create', [\App\Http\Controllers\MaterialController::class, 'create'])->name('materials.create');
     Route::post('courses/{course_id}/materials', [\App\Http\Controllers\MaterialController::class, 'store'])->name('materials.store');
+    Route::get('materials/{id}/view', [\App\Http\Controllers\MaterialController::class, 'view'])->name('materials.view');
     Route::get('materials/{id}/download', [\App\Http\Controllers\MaterialController::class, 'download'])->name('materials.download');
     Route::delete('materials/{id}', [\App\Http\Controllers\MaterialController::class, 'destroy'])->name('materials.destroy');
 

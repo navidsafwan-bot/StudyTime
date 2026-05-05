@@ -25,7 +25,7 @@
                     <td>{{ $material->title }}</td>
                     <td>{{ $material->created_at->format('M d, Y') }}</td>
                     <td>
-                        <a href="{{ Storage::url($material->file_path) }}" target="_blank" class="btn btn-info btn-sm">View</a>
+                        <a href="{{ route('materials.view', $material->id) }}" target="_blank" class="btn btn-info btn-sm">View</a>
                         <a href="{{ route('materials.download', $material->id) }}" class="btn btn-success btn-sm">Download</a>
                         <form action="{{ route('materials.destroy', $material->id) }}" method="POST" class="d-inline">
                             @csrf
